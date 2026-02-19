@@ -4,6 +4,7 @@ NullSec Prompt Armor — AI Security Toolkit v2.0
 8-layer defense system against prompt injection attacks:
   • prompt_armor.armor — Prompt injection detection and sanitization
   • prompt_armor.racer — AI race condition auditing
+  • prompt_armor.pro — Compliance reports, custom rules, audit trails
 
 Usage:
     from prompt_armor import analyze, sanitize, ThreatLevel
@@ -37,6 +38,17 @@ from prompt_armor.armor.engine import (
     AttackVector,
 )
 
+# Pro features
+from prompt_armor.pro import (
+    generate_compliance_report,
+    ComplianceReport,
+    RulesEngine,
+    CustomRule,
+    AuditTrail,
+    AuditEntry,
+    batch_scan,
+)
+
 __version__ = "2.0.0"
 
 __all__ = [
@@ -58,4 +70,12 @@ __all__ = [
     "ThreatLevel",
     "AttackVector",
     "__version__",
+    # Pro features
+    "generate_compliance_report",
+    "ComplianceReport",
+    "RulesEngine",
+    "CustomRule",
+    "AuditTrail",
+    "AuditEntry",
+    "batch_scan",
 ]
