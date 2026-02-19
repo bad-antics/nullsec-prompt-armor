@@ -1,7 +1,7 @@
 """
-NullSec Prompt Armor — AI Security Toolkit
+NullSec Prompt Armor — AI Security Toolkit v2.0
 
-Two tools in one package:
+8-layer defense system against prompt injection attacks:
   • prompt_armor.armor — Prompt injection detection and sanitization
   • prompt_armor.racer — AI race condition auditing
 
@@ -10,6 +10,11 @@ Usage:
     verdict = analyze("user input here")
     if verdict.threat_level != ThreatLevel.CLEAN:
         cleaned = sanitize("user input here")
+
+    # Multi-turn tracking
+    from prompt_armor import ConversationTracker
+    tracker = ConversationTracker()
+    verdict = analyze("user input", conversation_tracker=tracker)
 """
 
 from prompt_armor.armor.engine import (
@@ -19,7 +24,12 @@ from prompt_armor.armor.engine import (
     structural_scan,
     entropy_scan,
     semantic_drift_scan,
+    indirect_injection_scan,
+    language_evasion_scan,
+    deobfuscation_scan,
+    deobfuscate,
     armor_guard,
+    ConversationTracker,
     CanarySystem,
     ArmorVerdict,
     Finding,
@@ -27,7 +37,7 @@ from prompt_armor.armor.engine import (
     AttackVector,
 )
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 
 __all__ = [
     "analyze",
@@ -36,7 +46,12 @@ __all__ = [
     "structural_scan",
     "entropy_scan",
     "semantic_drift_scan",
+    "indirect_injection_scan",
+    "language_evasion_scan",
+    "deobfuscation_scan",
+    "deobfuscate",
     "armor_guard",
+    "ConversationTracker",
     "CanarySystem",
     "ArmorVerdict",
     "Finding",
